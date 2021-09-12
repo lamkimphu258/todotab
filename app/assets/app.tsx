@@ -6,22 +6,14 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+import './bootstrap.bundle';
 
 import React from "react";
 import ReactDOM from "react-dom";
-
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                Hello React and Symfony
-            </div>
-        )
-    }
-}
+import App from './components/App';
 
 ReactDOM.render(<App/>, document.getElementById('root'));
