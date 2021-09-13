@@ -30,6 +30,10 @@ yarn-install:
 	docker-compose exec app \
 	yarn install
 
+yarn-add:
+	docker-compose exec app \
+	yarn add $(pkg)
+
 yarn-dev:
 	docker-compose exec app \
 	yarn run dev

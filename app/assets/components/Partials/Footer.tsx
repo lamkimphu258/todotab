@@ -1,27 +1,23 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="bg-dark text-center text-white">
+        <footer className="bg-dark text-center text-white bg-gradient-primary-to-secondary">
             <div className="container p-4">
                 <section className="mb-4">
-                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i className="fab fa-facebook-f"/></a>
+                    <Link className="btn btn-outline-light btn-floating m-1"
+                       to="https://twitter.com/LamKimPhu1"
+                       role="button"
+                    ><i className="fab fa-twitter"/></Link>
 
-                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i className="fab fa-twitter"/></a>
+                    <Link className="btn btn-outline-light btn-floating m-1"
+                          to="https://www.linkedin.com/in/l%C3%A2m-kim-ph%C3%BA-57b0371b4/" role="button"
+                    ><i className="fab fa-linkedin-in"/></Link>
 
-                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i className="fab fa-google"/></a>
-
-                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i className="fab fa-instagram"/></a>
-
-                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i className="fab fa-linkedin-in"/></a>
-
-                    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i className="fab fa-github"/></a>
+                    <Link className="btn btn-outline-light btn-floating m-1"
+                          to="https://github.com/lamkimphu258" role="button"
+                    ><i className="fab fa-github"/></Link>
                 </section>
 
                 <section className="">
@@ -36,7 +32,6 @@ const Footer = () => {
                             <div className="col-md-5 col-12">
                                 <div className="form-outline form-white mb-4">
                                     <input type="email" id="form5Example2" className="form-control"/>
-                                    <label className="form-label">Email address</label>
                                 </div>
                             </div>
 
@@ -51,16 +46,14 @@ const Footer = () => {
 
                 <section className="mb-4">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-                        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-                        eum harum corrupti dicta, aliquam sequi voluptate quas.
+                        Subscribe our newsletter so that you will not miss any good tips to boost your career faster
                     </p>
                 </section>
             </div>
 
-            <div className="text-center p-3">
+            <div className="text-center pb-2">
                 &copy; {new Date().getFullYear()} Copyright:
-                <a href="https://github.com/lamkimphu258?tab=repositories">
+                <a href="https://github.com/lamkimphu258?tab=repositories" className={'text-white'}>
                     Lam Kim Phu
                 </a>
             </div>

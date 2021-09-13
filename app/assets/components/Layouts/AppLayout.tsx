@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderContainer from "../Partials/HeaderContainer";
 import Navbar from "../Partials/Navbar";
-import ContentContainer from "../Partials/ContentContainer";
+import ContentContainer from "./ContentContainer";
 import FooterContainer from "../Partials/FooterContainer";
 import Footer from "../Partials/Footer";
 import {

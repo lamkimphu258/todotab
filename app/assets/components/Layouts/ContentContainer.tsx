@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContentContainer: React.FC = ({children}) => {
     return (
-        <div className={'container'}>
+        <div className={'content'}>
             {children}
         </div>
     )
