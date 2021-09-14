@@ -34,6 +34,10 @@ yarn-add:
 	docker-compose exec app \
 	yarn add $(pkg)
 
+yarn-remove:
+	docker-compose exec app \
+	yarn remove $(pkg)
+
 yarn-dev:
 	docker-compose exec app \
 	yarn run dev

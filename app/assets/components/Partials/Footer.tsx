@@ -4,22 +4,7 @@ import {Link} from 'react-router-dom';
 const Footer = () => {
     return (
         <footer className="bg-dark text-center text-white bg-gradient-primary-to-secondary">
-            <div className="container p-4">
-                <section className="mb-4">
-                    <Link className="btn btn-outline-light btn-floating m-1"
-                       to="https://twitter.com/LamKimPhu1"
-                       role="button"
-                    ><i className="fab fa-twitter"/></Link>
-
-                    <Link className="btn btn-outline-light btn-floating m-1"
-                          to="https://www.linkedin.com/in/l%C3%A2m-kim-ph%C3%BA-57b0371b4/" role="button"
-                    ><i className="fab fa-linkedin-in"/></Link>
-
-                    <Link className="btn btn-outline-light btn-floating m-1"
-                          to="https://github.com/lamkimphu258" role="button"
-                    ><i className="fab fa-github"/></Link>
-                </section>
-
+            <div className="container p-3">
                 <section className="">
                     <form action="">
                         <div className="row d-flex justify-content-center">
@@ -44,7 +29,7 @@ const Footer = () => {
                     </form>
                 </section>
 
-                <section className="mb-4">
+                <section>
                     <p>
                         Subscribe our newsletter so that you will not miss any good tips to boost your career faster
                     </p>

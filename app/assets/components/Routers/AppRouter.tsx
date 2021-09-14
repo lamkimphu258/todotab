@@ -3,7 +3,7 @@ import {
     Switch,
     Route
 } from 'react-router-dom';
-import About from "../Pages/About";
+import About from "../Pages/About/About";
 import Home from "../Pages/Home/Home";
 
 const AppRouter: React.FC = () => {

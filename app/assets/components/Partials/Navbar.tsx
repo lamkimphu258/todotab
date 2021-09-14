@@ -15,6 +15,9 @@ const Navbar: React.FC = () => {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto">
+                        <li className={'nav-item'}>
+                            <NavLink className={'nav-link'} to="/about">About</NavLink>
+                        </li>
                     </ul>
                     <ul className={'nav d-flex justify-content-between'} style={{width: '180px'}}>
                         <li className={'nav-item'}>
