@@ -6,9 +6,9 @@ const Hero: React.FC = () => {
         <div id="hero" className="home">
             <div className="container">
                 <div className="hero-content">
-                    <h1>I'm a Backend Developer.</h1>
+                    <h1>I'm a PHP Developer.</h1>
                     <p>
-                        My name is Lam Kim Phu. I am a developer.<br/>
+                        My name is Lam Kim Phu. I am a PHP developer.<br/>
                         Most of my work time, I will spend to analysis, design architecture, system, write web
                         service and testing.<br/>
                         In my free time, I really enjoy to create a new application.<br/>

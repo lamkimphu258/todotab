@@ -4,6 +4,7 @@ import Validator from "../../Services/validation/validation";
 import axios from 'axios';
 import PopUp from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { Link } from 'react-router-dom';
 
 type FormInput = {
     value: string,
@@ -111,7 +112,7 @@ const SignUp: React.FC = () => {
         }
 
         axios.post(
-            '/api/rest/v1/users',
+            '/api/rest/v1/auth/register',
             {
                 email: formState.email.value,
                 password: formState.password.value,
@@ -179,7 +180,7 @@ const SignUp: React.FC = () => {
                     </p>
                 </div>
                 <div className="mb-3 text-end">
-                    <a href="/signin">Already have account?</a>
+                    Already have account? <Link to="/signin">Sign in now</Link>
                 </div>
                 <div className="mb-3">
                     <button className="btn btn-gradient-primary-to-secondary rounded-pill w-100" type="submit">Sign Up

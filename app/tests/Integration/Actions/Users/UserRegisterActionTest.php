@@ -11,7 +11,7 @@ class UserRegisterActionTest extends UserActionTestCase
 {
     use HasTestBadRequestBody;
 
-    private const URI = 'api/rest/v1/users';
+    private const URI = 'api/rest/v1/auth/register';
 
     private const HTTP_METHOD = Request::METHOD_POST;
 
@@ -24,7 +24,6 @@ class UserRegisterActionTest extends UserActionTestCase
                 'json' => self::VALID_REQUEST_BODY
             ]
         );
-
 
         $this->assertEquals(Response::HTTP_CREATED, $response->getStatusCode());
         $this->assertJson($response->getContent());

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Domain\Repositories\Users\UserRepository")
  * @codeCoverageIgnore
+ * @method string getUserIdentifier()
  */
 class User extends Entity implements UserInterface
 {
@@ -76,5 +77,25 @@ class User extends Entity implements UserInterface
 
     public function verify() {
         $this->verifiedAt = new DateTimeImmutable();
+    }
+
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        // TODO: Implement @method string getUserIdentifier()
     }
 }

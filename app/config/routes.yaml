@@ -3,6 +3,9 @@
 #    controller: App\Controller\DefaultController::index
 
 user-register:
-  path: /api/rest/v1/users
+  path: /api/rest/v1/auth/register
   controller: App\Actions\Users\UserRegisterAction
   methods: POST
+
+api_login_check:
+  path: /api/rest/v1/auth/login_check

@@ -14,7 +14,7 @@ class UserRegisterFilterTest extends UserFilterTestCase
     /**
      * @dataProvider providerTestFilterBadRequestHttpException
      */
-    public function testFilterBadRequestHttpException(
+    public function testFilterThrowBadRequestHttpException(
         string $email,
         string $password,
         string $username

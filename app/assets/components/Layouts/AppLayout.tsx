@@ -8,15 +8,18 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import AppRouter from "../Routers/AppRouter";
+import useToken from "../CustomHooks/useToken";
 
 const AppLayout: React.FC = () => {
+    const [token, setToken] = useToken();
+
     return (
         <Router>
             <HeaderContainer>
-                <Navbar/>
+                <Navbar userToken={token}/>
             </HeaderContainer>
             <ContentContainer>
-                <AppRouter/>
+                <AppRouter token={token} setToken={setToken}/>
             </ContentContainer>
             <FooterContainer>
                 <Footer/>
