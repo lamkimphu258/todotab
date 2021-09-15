@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 const Navbar: React.FC = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-primary-to-secondary fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-primary-to-secondary">
             <div className="container-fluid">
                 <NavLink className="navbar-brand" to="/">Todotab</NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
@@ -21,10 +21,10 @@ const Navbar: React.FC = () => {
                     </ul>
                     <ul className={'nav d-flex justify-content-between'} style={{width: '180px'}}>
                         <li className={'nav-item'}>
-                            <NavLink className={'btn btn-outline-light'} to="/signUp">Sign Up</NavLink>
+                            <NavLink className={'btn btn-outline-light'} to="/signup">Sign Up</NavLink>
                         </li>
                         <li className={'nav-item'}>
-                            <NavLink className={'btn btn-outline-light'} to="/signIn">Sign In</NavLink>
+                            <NavLink className={'btn btn-outline-light'} to="/signin">Sign In</NavLink>
                         </li>
                     </ul>
                 </div>

@@ -1,3 +1,8 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+user-register:
+  path: /api/rest/v1/users
+  controller: App\Actions\Users\UserRegisterAction
+  methods: POST

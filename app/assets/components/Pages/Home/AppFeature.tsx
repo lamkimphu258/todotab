@@ -1,4 +1,5 @@
 import React from 'react';
+import {Zoom, Roll} from 'react-awesome-reveal';
 
 const AppFeature = () => {
     return (
@@ -7,7 +8,7 @@ const AppFeature = () => {
                 <div className="container px-5">
                     <div className="row py-5 align-items-center">
                         <div className="col-lg-7 order-lg-1 mb-5 pl-5 mb-lg-0">
-                            <div className="container-fluid px-5">
+                            <Zoom triggerOnce className="container-fluid px-5">
                                 <div className="row gx-5">
                                     <div className="col-md-6 mb-5">
                                         <div className="text-center">
@@ -44,17 +45,18 @@ const AppFeature = () => {
                                             <i className="bi-patch-check icon-feature text-gradient d-block mb-3"/>
                                             <h3 className="font-alt">Open Source</h3>
                                             <p className="text-muted mb-0">
-                                                Since this theme is MIT licensed, you can use it commercially!
+                                                Since this app is MIT licensed, you can use it commercially!
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Zoom>
                         </div>
                         <div className="col-lg-5 order-lg-0">
-                            <div className="features-device-mockup">
-                                <img src="/build/appPages/home/checklist2.gif" alt="checklist2"/>
-                            </div>
+                            <Roll triggerOnce className="features-device-mockup">
+                                <a className={'invisible'} href="https://storyset.com/work">Work illustrations by Storyset</a>
+                                <img src="/build/appPages/home/checklist2.svg" alt="checklist2"/>
+                            </Roll>
                         </div>
                     </div>
                 </div>

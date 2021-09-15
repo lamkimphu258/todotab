@@ -5,6 +5,12 @@
   background: linear-gradient(45deg, #2937f0, #9f1ae2) !important;
 }
 
+.btn-gradient-primary-to-secondary {
+  color: #fff;
+  background: linear-gradient(45deg, #2937f0, #9f1ae2);
+  border-color: #0d6efd;
+}
+
 .text-gradient {
   background: -webkit-linear-gradient(#2937f0, #9f1ae2);
   background-clip: text;
@@ -39,7 +45,7 @@
   font-weight: 700;
   margin-bottom: 10px;
   text-transform: uppercase;
-  color: #fff;
+  color: #e0e0e0;
 }
 
 .hero-content p {
@@ -48,7 +54,7 @@
   margin-top: 0;
   margin-bottom: 30px;
   text-transform: capitalize;
-  color: #fff;
+  color: #e0e0e0;
   font-weight: 500;
 }
 
@@ -58,6 +64,62 @@
 }
 
 .hero-content .list-social li i {
-  color: #fff;
+  color: #e0e0e0;
   font-size: 15px;
+}
+
+.security-form {
+  width: 60%;
+}
+
+.error-message {
+  margin-top: 5px;
+  visibility: hidden;
+}
+
+#show-password {
+  cursor: pointer;
+}
+
+// Modal
+.modal {
+  font-size: 12px;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.term {
+  cursor: pointer;
+}
+
+.popup-content {
+  padding: 20px;
 }

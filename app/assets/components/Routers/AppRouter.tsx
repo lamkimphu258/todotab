@@ -1,10 +1,8 @@
 import React from 'react';
-import {
-    Switch,
-    Route
-} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import About from "../Pages/About/About";
 import Home from "../Pages/Home/Home";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const AppRouter: React.FC = () => {
     return (
@@ -12,6 +10,7 @@ const AppRouter: React.FC = () => {
             <Switch>
                 <Route exact path={'/'} component={Home}/>
                 <Route path={'/about'} component={About}/>
+                <Route exact path={'/signup'} component={SignUp}/>
             </Switch>
         </>
     )

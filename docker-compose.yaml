@@ -12,6 +12,8 @@ services:
     container_name: todotab-app
     restart: unless-stopped
     working_dir: /var/www/
+    environment:
+      - XDEBUG_MODE=coverage
     volumes:
       - ./app:/var/www
     networks:
@@ -24,7 +26,7 @@ services:
       MYSQL_DATABASE: todotab
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      #      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
       - ./docker-compose/mysql/data:/var/lib/mysql:rw
     ports:
       - "3306:3306"
@@ -39,6 +41,15 @@ services:
     volumes:
       - ./app:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - todotab
+  mailhog:
+    image: mailhog/mailhog
+#    logging:
+#      driver: 'none'  # disable saving logs
+    ports:
+      - "1025:1025" # smtp server
+      - "8025:8025" # web ui
     networks:
       - todotab
 networks:
