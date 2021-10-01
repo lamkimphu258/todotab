@@ -2,6 +2,7 @@ import React from 'react';
 import MasterHead from "./MasterHead";
 import TestimonialAside from "./TestimonialAside";
 import AppFeature from "./AppFeature";
+import TodoIndexPage from "../Todos/TodoIndexPage";
 
 type Props = {
     token: string
@@ -19,7 +20,7 @@ const Home: React.FC<Props> = ({token}) => {
             )}
             {token && (
                 <>
-                    <h1>Todo list</h1>
+                    <TodoIndexPage/>
                 </>
             )}
         </>

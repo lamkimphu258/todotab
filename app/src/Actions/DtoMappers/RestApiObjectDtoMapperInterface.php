@@ -2,11 +2,11 @@
 
 namespace App\Actions\DtoMappers;
 
-use App\Actions\Dtos\DtoInterface;
+use App\Actions\Dtos\ObjectDtoInterface;
 
 interface RestApiObjectDtoMapperInterface extends RestApiDtoMapperInterface
 {
-    public function fromDto(DtoInterface $dto): object;
+    public function fromDto(ObjectDtoInterface $dto): object;
 
-    public function toDto(object $entity): DtoInterface;
+    public function toDto(object $entity): ObjectDtoInterface;
 }

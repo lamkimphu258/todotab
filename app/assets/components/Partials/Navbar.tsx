@@ -10,7 +10,7 @@ const Navbar: React.FC<Props> = ({userToken}) => {
     let rightNavbar;
 
     const handleOnClickLogout = () => {
-        sessionStorage.removeItem('token');
+        localStorage.removeItem('token');
         window.location.href = '/';
     }
 

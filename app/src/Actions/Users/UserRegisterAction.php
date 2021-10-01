@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UserRegisterAction extends AbstractRestApiAction
 {
+    private UserRegisterService $service;
+
     /**
      * @param UserRegisterFilter $filter
      * @param UserRepository $repository
@@ -29,7 +31,8 @@ class UserRegisterAction extends AbstractRestApiAction
         UserObjectDtoMapper $dtoMapper,
         UserRegisterResponder $responder
     ) {
-        parent::__construct($filter, $repository, $service, $dtoMapper, $responder);
+        parent::__construct($filter, $repository, $dtoMapper, $responder);
+        $this->service = $service;
     }
 
     public function __invoke(Request $request): JsonResponse

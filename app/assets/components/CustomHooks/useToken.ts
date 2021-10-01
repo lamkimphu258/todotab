@@ -2,13 +2,13 @@ import {useState} from "react";
 
 const useToken = () => {
     const getToken = () => {
-        return sessionStorage.getItem('token');
+        return localStorage.getItem('token');
     }
 
     const [token, setToken] = useState<string>(getToken() || '');
 
     const saveToken = (token: string) => {
-        sessionStorage.setItem('token', token);
+        localStorage.setItem('token', token);
         setToken(token);
     }
 

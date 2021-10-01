@@ -2,17 +2,17 @@
 
 namespace App\DataFixtures;
 
-use App\Factory\UserFactory;
+use App\Factory\TodoFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 /**
  * @codeCoverageIgnore
  */
-class UserFixtures extends Fixture
+class TodoFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        UserFactory::createOne();
+        TodoFactory::createMany(10);
     }
 }

@@ -16,8 +16,6 @@ abstract class AbstractRestApiAction extends AbstractController implements Actio
 
     protected ServiceEntityRepositoryInterface $repository;
 
-    protected ServiceInterface $service;
-
     protected RestApiDtoMapperInterface $dtoMapper;
 
     protected RestApiResponderInterface $responder;
@@ -25,20 +23,17 @@ abstract class AbstractRestApiAction extends AbstractController implements Actio
     /**
      * @param FilterInterface $filter
      * @param ServiceEntityRepositoryInterface $repository
-     * @param ServiceInterface $service
      * @param RestApiDtoMapperInterface $dtoMapper
      * @param RestApiResponderInterface $responder
      */
     public function __construct(
         FilterInterface $filter,
         ServiceEntityRepositoryInterface $repository,
-        ServiceInterface $service,
         RestApiDtoMapperInterface $dtoMapper,
         RestApiResponderInterface $responder
     ) {
         $this->filter = $filter;
         $this->repository = $repository;
-        $this->service = $service;
         $this->dtoMapper = $dtoMapper;
         $this->responder = $responder;
     }

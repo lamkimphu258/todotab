@@ -1,9 +1,9 @@
 import React from 'react';
-import AppLayout from "./Layouts/AppLayout";
+import AppRouter from "./Routers/AppRouter";
 
 const App: React.FC = () => {
     return (
-        <AppLayout/>
+        <AppRouter/>
     )
 }
 

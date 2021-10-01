@@ -9,3 +9,8 @@ user-register:
 
 api_login_check:
   path: /api/rest/v1/auth/login_check
+
+todo-index:
+  path: /api/rest/v1/todos
+  controller: App\Actions\Todos\TodoIndexAction
+  methods: GET

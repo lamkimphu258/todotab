@@ -1,4 +1,4 @@
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, useEffect, useState} from "react";
 import Validator from "../../Services/validation/validation";
 import axios from "axios";
 import {errorMessage} from "../../Services/validation/errorMessage";
@@ -34,6 +34,7 @@ type Props = {
     setToken: (token: string) => void;
 }
 
+// TODO: add refresh token in backend, private route in frontend to just allow authenticated user can see web page content
 const SignIn: React.FC<Props> = ({setToken}) => {
     const [formState, setFormState] = useState<FormState>(initialState);
     const [togglePassword, setTogglePassword] = useState<string>('password');

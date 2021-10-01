@@ -8,8 +8,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 interface RestApiListResponderInterface extends RestApiResponderInterface
 {
     /**
-     * @param ListDtoInterface $listDto
+     * @param ListDtoInterface[] $listDtos
      * @return JsonResponse
      */
-    public function respond(ListDtoInterface $listDto): JsonResponse;
+    public function respond(array $listDtos): JsonResponse;
 }
