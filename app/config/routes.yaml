@@ -10,6 +10,10 @@ user-register:
 api_login_check:
   path: /api/rest/v1/auth/login_check
 
+token_refresh:
+  path: /api/rest/v1/token/refresh
+  controller: App\Actions\SecurityAction::refreshToken
+
 todo-index:
   path: /api/rest/v1/todos
   controller: App\Actions\Todos\TodoIndexAction

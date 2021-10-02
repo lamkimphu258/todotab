@@ -1,8 +1,9 @@
-import React, {FormEvent, useEffect, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import Validator from "../../Services/validation/validation";
 import axios from "axios";
 import {errorMessage} from "../../Services/validation/errorMessage";
-import {Link, useHistory} from "react-router-dom";
+import {Link, Redirect, useHistory} from "react-router-dom";
+import useToken from "../../CustomHooks/useToken";
 
 type FormInput = {
     value: string,
@@ -30,16 +31,12 @@ const initialState: FormState = {
 
 type ValidateFunc = (input: FormInput) => boolean;
 
-type Props = {
-    setToken: (token: string) => void;
-}
-
-// TODO: add refresh token in backend, private route in frontend to just allow authenticated user can see web page content
-const SignIn: React.FC<Props> = ({setToken}) => {
+const SignIn: React.FC = () => {
     const [formState, setFormState] = useState<FormState>(initialState);
     const [togglePassword, setTogglePassword] = useState<string>('password');
     const [togglePasswordText, setTogglePasswordText] = useState<string>('Show');
     const [formError, setFormError] = useState<string>('');
+    const [token, setToken] = useToken();
     const history = useHistory();
 
     const handleOnClick = (e: FormEvent<HTMLSpanElement>) => {
@@ -106,7 +103,7 @@ const SignIn: React.FC<Props> = ({setToken}) => {
         )
             .then((response) => {
                 setToken(response.data.token);
-                history.goBack();
+                history.push('/todos');
             })
             .catch((error) => {
                 setFormError(error.response.data.message);

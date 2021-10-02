@@ -8,6 +8,10 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
+/**
+ * @codeCoverageIgnore
+ * TODO: test later
+ */
 class Mailer
 {
     /**

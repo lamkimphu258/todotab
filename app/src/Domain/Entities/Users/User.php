@@ -5,13 +5,14 @@ namespace App\Domain\Entities\Users;
 use App\Domain\Entities\Entity;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Domain\Repositories\Users\UserRepository")
  * @codeCoverageIgnore
  * @method string getUserIdentifier()
  */
-class User extends Entity implements UserInterface
+class User extends Entity implements PasswordAuthenticatedUserInterface, UserInterface
 {
     /**
      * @ORM\Column(type="string", unique=true, nullable=false, length=255)

@@ -2,27 +2,21 @@ import React from 'react';
 import MasterHead from "./MasterHead";
 import TestimonialAside from "./TestimonialAside";
 import AppFeature from "./AppFeature";
-import TodoIndexPage from "../Todos/TodoIndexPage";
+import useToken from "../../CustomHooks/useToken";
+import {Redirect} from "react-router-dom";
 
-type Props = {
-    token: string
-}
+const Home: React.FC = () => {
+    const [token,] = useToken();
 
-const Home: React.FC<Props> = ({token}) => {
+    if (token) {
+        <Redirect to={'/todos'}/>
+    }
+
     return (
         <>
-            {!token && (
-                <>
-                    <MasterHead/>
-                    <TestimonialAside/>
-                    <AppFeature/>
-                </>
-            )}
-            {token && (
-                <>
-                    <TodoIndexPage/>
-                </>
-            )}
+            <MasterHead/>
+            <TestimonialAside/>
+            <AppFeature/>
         </>
     )
 }
