@@ -3,7 +3,6 @@
 use App\Actions\DtoMappers\Users\UserObjectDtoMapper;
 use App\Actions\Dtos\Users\UserObjectDto;
 use App\Actions\Users\UserRegisterAction;
-use App\Domain\Commands\Users\UserRegisterCommand;
 use App\Domain\Entities\Users\User;
 use App\Domain\Entities\Users\UserPropertyName;
 use App\Domain\Repositories\Users\UserRepository;
@@ -11,13 +10,13 @@ use App\Domain\Services\Users\UserRegisterService;
 use App\Factory\UserFactory;
 use App\Filters\Users\UserRegisterFilter;
 use App\Responders\Users\UserRegisterResponder;
-use App\Tests\Unit\Actions\ActionTestCase;
+use App\Tests\Unit\Actions\Users\UserActionTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class UserRegisterActionTest extends ActionTestCase
+class UserRegisterActionTest extends UserActionTestCase
 {
     public function testThrowBadRequestHttpException()
     {

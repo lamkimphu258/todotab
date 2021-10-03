@@ -43,7 +43,7 @@ final class UserFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'email' => 'email@example.com',
+            'email' => 'example@email.com',
             'password' => 'password123ST@',
             'username' => 'username',
         ];

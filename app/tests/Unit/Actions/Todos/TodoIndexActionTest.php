@@ -7,7 +7,9 @@ use App\Actions\Dtos\Todos\TodoListDto;
 use App\Actions\Todos\TodoIndexAction;
 use App\Domain\Entities\Todos\TodoPropertyName;
 use App\Domain\Repositories\Todos\TodoRepository;
+use App\Domain\Repositories\Users\UserRepository;
 use App\Factory\TodoFactory;
+use App\Factory\UserFactory;
 use App\Filters\Todos\TodoIndexFilter;
 use App\Responders\Todos\TodoIndexResponder;
 use DateTimeImmutable;
@@ -19,10 +21,15 @@ class TodoIndexActionTest extends TodoActionTestCase
     public function testReturnAllTodos()
     {
         $request = $this->createMock(Request::class);
+        $request->expects($this->once())
+            ->method('get')
+            ->with('username')
+            ->willReturn(self::USERNAME);
 
         $filter = $this->createMock(TodoIndexFilter::class);
 
         $todoFactories = TodoFactory::createMany(self::NUMBER_OF_TODOS);
+        $userFactory = UserFactory::createOne();
 
         foreach ($todoFactories as $todoFactory) {
             $todos[] = $todoFactory->object();
@@ -43,11 +50,17 @@ class TodoIndexActionTest extends TodoActionTestCase
             $todoListDtos[] = $todoListDto;
         }
 
-        $repository = $this->createMock(TodoRepository::class);
-        $repository->expects($this->once())
-            ->method('findAll')
-            ->with()
+        $todoRepository = $this->createMock(TodoRepository::class);
+        $todoRepository->expects($this->once())
+            ->method('findByOwner')
+            ->with($userFactory->object())
             ->willReturn($todos);
+
+        $userRepository = $this->createMock(UserRepository::class);
+        $userRepository->expects($this->once())
+            ->method('findOneByUsername')
+            ->with('username')
+            ->willReturn($userFactory->object());
 
         $dtoMapper = $this->createMock(TodoListDtoMapper::class);
         $dtoMapper->expects($this->once())
@@ -63,9 +76,10 @@ class TodoIndexActionTest extends TodoActionTestCase
 
         $action = new TodoIndexAction(
             $filter,
-            $repository,
+            $todoRepository,
             $dtoMapper,
-            $responder
+            $responder,
+            $userRepository
         );
         $response = $action->__invoke($request);
 

@@ -4,6 +4,7 @@ namespace App\Tests\Integration\Domain\Repositories\Users;
 
 use App\Domain\Entities\Users\User;
 use App\Domain\Repositories\Users\UserRepository;
+use App\Factory\UserFactory;
 use DateTimeImmutable;
 
 class UserRepositoryTest extends UserRepositoryTestCase
@@ -30,5 +31,18 @@ class UserRepositoryTest extends UserRepositoryTestCase
         $this->assertEquals(self::EMAIL, $newUser->getEmail());
         $this->assertNotEquals(self::PASSWORD, $newUser->getPassword());
         $this->assertEquals(self::USERNAME, $newUser->getUsername());
+    }
+
+    public function testReturnUserFindByUsername()
+    {
+        $userFactory = UserFactory::createOne();
+        $userFactoryObject = $userFactory->object();
+
+        $repository = new UserRepository($this->managerRegistry);
+
+        $foundUser = $repository->findOneByUsername($userFactoryObject->getUsername());
+
+        $this->assertInstanceOf(User::class, $foundUser);
+        $this->assertSame($userFactoryObject, $foundUser);
     }
 }

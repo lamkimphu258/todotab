@@ -7,8 +7,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
-use Symfony\Component\Security\Core\Encoder\PasswordHasherEncoder;
 
 class UserRepository extends ServiceEntityRepository
 {
@@ -38,5 +36,14 @@ class UserRepository extends ServiceEntityRepository
     public function findOneByEmail(string $email): mixed
     {
         return $this->findOneBy(['email' => $email]);
+    }
+
+    /**
+     * @param string $username
+     * @return mixed
+     */
+    public function findOneByUsername(string $username): mixed
+    {
+        return $this->findOneBy(['username' => $username]);
     }
 }

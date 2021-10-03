@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
                 </a>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                     <li><a className="dropdown-item" href="#">Profile</a></li>
-                    <li><Link className="dropdown-item" to={'/todos'}>My Todos</Link></li>
+                    <li><Link className="dropdown-item" to={`/${user.username}/todos`}>My Todos</Link></li>
                     <li>
                         <hr className="dropdown-divider"/>
                     </li>
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
             <ul className="navbar-nav me-auto">
             </ul>
         )
-        navBrandLink = '/todos'
+        navBrandLink = `/${user.username}/todos`;
     }
 
 

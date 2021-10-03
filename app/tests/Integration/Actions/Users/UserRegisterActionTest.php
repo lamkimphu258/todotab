@@ -36,5 +36,8 @@ class UserRegisterActionTest extends UserActionTestCase
         $this->assertArrayHasKey(UserPropertyName::USERNAME, $responseInAssociativeArray);
         $this->assertArrayHasKey(UserPropertyName::CREATED_AT, $responseInAssociativeArray);
         $this->assertArrayHasKey(UserPropertyName::UPDATED_AT, $responseInAssociativeArray);
+
+        $this->assertSame(self::VALID_REQUEST_BODY[UserPropertyName::EMAIL], $responseInAssociativeArray[UserPropertyName::EMAIL]);
+        $this->assertSame(self::VALID_REQUEST_BODY[UserPropertyName::USERNAME], $responseInAssociativeArray[UserPropertyName::USERNAME]);
     }
 }

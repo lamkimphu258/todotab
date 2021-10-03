@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Tests\Unit\Filters;
+namespace App\Tests\Unit\Filters\Users;
 
-use PHPUnit\Framework\TestCase;
+use App\Tests\Unit\Filters\FilterTestCase;
 
-abstract class UserFilterTestCase extends TestCase
+abstract class UserFilterTestCase extends FilterTestCase
 {
-    protected const INVALID_REQUEST_BODY_MESSAGE = 'invalid-request-body-message';
-
     protected const INVALID_REQUEST_BODY = [
         'email' => '',
     ];
@@ -17,8 +15,4 @@ abstract class UserFilterTestCase extends TestCase
         'password' => '$2y$13$ZKGX0LJ.YOh8FmsLCJrYoeYtqukwVw/xe3dBAOxvE8k5lu3VicJBW',
         'username' => 'username',
     ];
-
-    protected const HAVE_ERRORS = 1;
-
-    protected const HAVE_NO_ERROR = 0;
 }

@@ -2,7 +2,7 @@ import React, {FormEvent, useState} from "react";
 import Validator from "../../Services/validation/validation";
 import axios from "axios";
 import {errorMessage} from "../../Services/validation/errorMessage";
-import {Link, Redirect, useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import useToken from "../../CustomHooks/useToken";
 
 type FormInput = {
@@ -103,7 +103,7 @@ const SignIn: React.FC = () => {
         )
             .then((response) => {
                 setToken(response.data.token);
-                history.push('/todos');
+                history.push('/' + formState.username.value + '/todos');
             })
             .catch((error) => {
                 setFormError(error.response.data.message);

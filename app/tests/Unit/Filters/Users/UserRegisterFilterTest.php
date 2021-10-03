@@ -3,7 +3,6 @@
 namespace App\Tests\Unit\Filters\Users;
 
 use App\Filters\Users\UserRegisterFilter;
-use App\Tests\Unit\Filters\UserFilterTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Validator\ConstraintViolationList;
@@ -18,8 +17,7 @@ class UserRegisterFilterTest extends UserFilterTestCase
         string $email,
         string $password,
         string $username
-    )
-    {
+    ) {
         $request = $this->createMock(Request::class);
         $request->expects($this->once())
             ->method('getContent')
@@ -99,7 +97,8 @@ class UserRegisterFilterTest extends UserFilterTestCase
         ];
     }
 
-    public function testFilterSuccess() {
+    public function testFilterSuccess()
+    {
         $request = $this->createMock(Request::class);
         $request->expects($this->once())
             ->method('getContent')

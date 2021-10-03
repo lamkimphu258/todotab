@@ -3,7 +3,9 @@
 namespace App\Domain\Entities\Todos;
 
 use App\Domain\Entities\Entity;
+use App\Domain\Entities\Users\User;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -25,6 +27,12 @@ class Todo extends Entity implements TodoInterface
      */
     private string $slug;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Domain\Entities\Users\User", inversedBy="todos")
+     * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
+     */
+    private User $owner;
+
     public function __construct(
         string $name
     ) {
@@ -39,5 +47,9 @@ class Todo extends Entity implements TodoInterface
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    public function assignOwner(User $user) {
+        $this->owner = $user;
     }
 }

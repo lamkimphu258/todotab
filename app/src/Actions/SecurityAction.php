@@ -19,6 +19,7 @@ use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
  */
 class SecurityAction extends AbstractController
 {
+    // TODO: check unique username when register
     #[Route('/verify', name: 'registration_confirmation_route')]
     public function verifyEmail(Request $request, VerifyEmailHelperInterface $helper, UserRepository $userRepository)
     {

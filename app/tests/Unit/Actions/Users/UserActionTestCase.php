@@ -1,22 +1,18 @@
 <?php
 
-namespace App\Tests\Unit\Actions\Todos;
+namespace App\Tests\Unit\Actions\Users;
 
 use App\Tests\Unit\Actions\ActionTestCase;
 
-class TodoActionTestCase extends ActionTestCase
+class UserActionTestCase extends ActionTestCase
 {
-    protected const NUMBER_OF_TODOS = 2;
-
-    protected const USERNAME = 'username';
-
-    protected const SLUG = 'slug';
-
     protected const INVALID_REQUEST_BODY = [
         'email' => '',
     ];
 
     protected const VALID_REQUEST_BODY = [
         'email' => 'example@email.com',
+        'password' => 'password123ST@',
+        'username' => 'username',
     ];
 }

@@ -5,7 +5,7 @@ import TodoIndexPage from "../Pages/Todos/TodoIndexPage";
 const AppContentRouter = () => {
     return (
         <Switch>
-            <Route exact path={'/todos'} component={TodoIndexPage}/>
+            <Route path={'/:username/todos'} component={TodoIndexPage}/>
         </Switch>
     )
 }

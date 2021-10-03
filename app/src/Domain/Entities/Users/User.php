@@ -3,7 +3,10 @@
 namespace App\Domain\Entities\Users;
 
 use App\Domain\Entities\Entity;
+use App\Domain\Entities\Todos\Todo;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
@@ -35,6 +38,11 @@ class User extends Entity implements PasswordAuthenticatedUserInterface, UserInt
     private DateTimeImmutable $verifiedAt;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Domain\Entities\Todos\Todo", mappedBy="owner", cascade={"remove"}, orphanRemoval=true)
+     */
+    private Collection $todos;
+
+    /**
      * @param string $email
      * @param string $password
      * @param string $username
@@ -50,6 +58,7 @@ class User extends Entity implements PasswordAuthenticatedUserInterface, UserInt
             PASSWORD_DEFAULT
         );
         $this->username = $username;
+        $this->todos = new ArrayCollection();
     }
 
     /**
@@ -76,7 +85,8 @@ class User extends Entity implements PasswordAuthenticatedUserInterface, UserInt
         return $this->username;
     }
 
-    public function verify() {
+    public function verify()
+    {
         $this->verifiedAt = new DateTimeImmutable();
     }
 
@@ -98,5 +108,18 @@ class User extends Entity implements PasswordAuthenticatedUserInterface, UserInt
     public function __call(string $name, array $arguments)
     {
         // TODO: Implement @method string getUserIdentifier()
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getTodos(): Collection
+    {
+        return $this->todos;
+    }
+
+    public function addTodo(Todo $todo)
+    {
+        $this->todos->add($todo);
     }
 }
