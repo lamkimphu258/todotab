@@ -14,6 +14,17 @@ class TodoRepository extends ServiceEntityRepository
         parent::__construct($registry, Todo::class);
     }
 
+    public function findLatestTodo()
+    {
+        return $this->findOneBy([], ['createdAt' => 'desc']);
+    }
+
+    public function save(Todo $todo)
+    {
+        $this->getEntityManager()->persist($todo);
+        $this->getEntityManager()->flush();
+    }
+
     public function findByOwner(User $owner): array
     {
         return $owner->getTodos()->toArray();

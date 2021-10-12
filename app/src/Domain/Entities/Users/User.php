@@ -43,9 +43,9 @@ class User extends Entity implements PasswordAuthenticatedUserInterface, UserInt
     private Collection $todos;
 
     /**
-     * @param string $email
-     * @param string $password
-     * @param string $username
+     * @param  string  $email
+     * @param  string  $password
+     * @param  string  $username
      */
     public function __construct(
         string $email,

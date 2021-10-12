@@ -3,6 +3,7 @@
 namespace App\Tests\Unit\Filters;
 
 use PHPUnit\Framework\TestCase;
+use Zenstruck\Foundry\Test\Factories;
 
 abstract class FilterTestCase extends TestCase
 {

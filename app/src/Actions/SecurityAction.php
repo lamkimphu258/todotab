@@ -14,6 +14,7 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 // TODO: test later
+
 /**
  * @codeCoverageIgnore
  */

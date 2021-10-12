@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 interface FilterInterface
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      */
     public function filter(Request $request): void;
 }

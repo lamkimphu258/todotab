@@ -4,7 +4,6 @@ namespace App\Actions;
 
 use App\Actions\DtoMappers\RestApiDtoMapperInterface;
 use App\Domain\Repositories\RepositoryInterface;
-use App\Domain\Services\ServiceInterface;
 use App\Filters\FilterInterface;
 use App\Responders\RestApiResponderInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface;
@@ -21,10 +20,10 @@ abstract class AbstractRestApiAction extends AbstractController implements Actio
     protected RestApiResponderInterface $responder;
 
     /**
-     * @param FilterInterface $filter
-     * @param ServiceEntityRepositoryInterface $repository
-     * @param RestApiDtoMapperInterface $dtoMapper
-     * @param RestApiResponderInterface $responder
+     * @param  FilterInterface  $filter
+     * @param  ServiceEntityRepositoryInterface  $repository
+     * @param  RestApiDtoMapperInterface  $dtoMapper
+     * @param  RestApiResponderInterface  $responder
      */
     public function __construct(
         FilterInterface $filter,

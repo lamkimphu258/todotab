@@ -13,10 +13,10 @@ class TodoActionTestCase extends ActionTestCase
     protected const SLUG = 'slug';
 
     protected const INVALID_REQUEST_BODY = [
-        'email' => '',
+        'name' => '',
     ];
 
     protected const VALID_REQUEST_BODY = [
-        'email' => 'example@email.com',
+        'name' => 'todo',
     ];
 }

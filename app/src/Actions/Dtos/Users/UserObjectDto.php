@@ -11,11 +11,11 @@ use DateTimeImmutable;
 class UserObjectDto implements ObjectDtoInterface
 {
     /**
-     * @param string $id
-     * @param string $email
-     * @param string $username
-     * @param DateTimeImmutable $createdAt
-     * @param DateTimeImmutable $updatedAt
+     * @param  string  $id
+     * @param  string  $email
+     * @param  string  $username
+     * @param  DateTimeImmutable  $createdAt
+     * @param  DateTimeImmutable  $updatedAt
      */
     public function __construct(
         public string $id,

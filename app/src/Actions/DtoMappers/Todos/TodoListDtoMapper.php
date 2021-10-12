@@ -3,7 +3,6 @@
 namespace App\Actions\DtoMappers\Todos;
 
 use App\Actions\DtoMappers\RestApiListDtoMapperInterface;
-use App\Actions\Dtos\ListDtoInterface;
 use App\Actions\Dtos\Todos\TodoListDto;
 use App\Domain\Entities\Todos\Todo;
 use JetBrains\PhpStorm\Pure;
@@ -11,8 +10,8 @@ use JetBrains\PhpStorm\Pure;
 class TodoListDtoMapper implements RestApiListDtoMapperInterface
 {
     /**
-     * @param ListDtoInterface[] $listDto
-     * @return array
+     * @param  TodoListDto[]  $listDto
+     * @return Todo[]
      * @codeCoverageIgnore
      */
     public function fromDtos(array $listDto): array
@@ -21,8 +20,8 @@ class TodoListDtoMapper implements RestApiListDtoMapperInterface
     }
 
     /**
-     * @param array $entities
-     * @return ListDtoInterface[]
+     * @param  Todo[]  $entities
+     * @return TodoListDto[]
      */
     #[Pure] public function toDtos(array $entities): array
     {

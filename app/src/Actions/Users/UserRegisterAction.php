@@ -18,11 +18,11 @@ class UserRegisterAction extends AbstractRestApiAction
     private UserRegisterService $service;
 
     /**
-     * @param UserRegisterFilter $filter
-     * @param UserRepository $repository
-     * @param UserRegisterService $service
-     * @param UserObjectDtoMapper $dtoMapper
-     * @param UserRegisterResponder $responder
+     * @param  UserRegisterFilter  $filter
+     * @param  UserRepository  $repository
+     * @param  UserRegisterService  $service
+     * @param  UserObjectDtoMapper  $dtoMapper
+     * @param  UserRegisterResponder  $responder
      */
     #[Pure] public function __construct(
         UserRegisterFilter $filter,

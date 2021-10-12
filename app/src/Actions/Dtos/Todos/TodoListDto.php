@@ -11,10 +11,10 @@ use DateTimeImmutable;
 class TodoListDto implements ListDtoInterface
 {
     /**
-     * @param string $name
-     * @param string $slug
-     * @param DateTimeImmutable $createdAt
-     * @param DateTimeImmutable $updatedAt
+     * @param  string  $name
+     * @param  string  $slug
+     * @param  DateTimeImmutable  $createdAt
+     * @param  DateTimeImmutable  $updatedAt
      */
     public function __construct(
         public string $name,

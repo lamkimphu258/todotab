@@ -11,7 +11,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class UserRepository extends ServiceEntityRepository
 {
     /**
-     * @param ManagerRegistry $registry
+     * @param  ManagerRegistry  $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -19,7 +19,7 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param User $user
+     * @param  User  $user
      * @throws ORMException
      * @throws OptimisticLockException
      */
@@ -30,7 +30,7 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param string $email
+     * @param  string  $email
      * @return mixed
      */
     public function findOneByEmail(string $email): mixed
@@ -39,7 +39,7 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param string $username
+     * @param  string  $username
      * @return mixed
      */
     public function findOneByUsername(string $username): mixed

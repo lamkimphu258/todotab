@@ -17,10 +17,10 @@ class TodoIndexAction extends AbstractRestApiAction
     private UserRepository $userRepository;
 
     /**
-     * @param TodoIndexFilter $filter
-     * @param TodoRepository $repository
-     * @param TodoListDtoMapper $dtoMapper
-     * @param TodoIndexResponder $responder
+     * @param  TodoIndexFilter  $filter
+     * @param  TodoRepository  $repository
+     * @param  TodoListDtoMapper  $dtoMapper
+     * @param  TodoIndexResponder  $responder
      */
     #[Pure] public function __construct(
         TodoIndexFilter $filter,
@@ -34,7 +34,7 @@ class TodoIndexAction extends AbstractRestApiAction
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function __invoke(Request $request): JsonResponse

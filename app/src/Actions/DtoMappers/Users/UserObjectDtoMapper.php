@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\Pure;
 class UserObjectDtoMapper implements RestApiObjectDtoMapperInterface
 {
     /**
-     * @param ObjectDtoInterface $dto
+     * @param  ObjectDtoInterface  $dto
      * @return object
      * @codeCoverageIgnore
      */
@@ -22,7 +22,7 @@ class UserObjectDtoMapper implements RestApiObjectDtoMapperInterface
     }
 
     /**
-     * @param object $entity
+     * @param  object  $entity
      * @return DtoInterface
      */
     #[Pure] public function toDto(object $entity): ObjectDtoInterface

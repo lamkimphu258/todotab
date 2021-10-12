@@ -15,7 +15,7 @@ use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 class Mailer
 {
     /**
-     * @param MailerInterface $mailer
+     * @param  MailerInterface  $mailer
      */
     public function __construct(
         private MailerInterface $mailer,
@@ -24,8 +24,8 @@ class Mailer
     }
 
     /**
-     * @param string $email
-     * @param string $username
+     * @param  string  $email
+     * @param  string  $username
      * @throws TransportExceptionInterface
      */
     public function sendVerificationEmail(string $email, string $username)

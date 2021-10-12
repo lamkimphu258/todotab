@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 abstract class AbstractFilter implements FilterInterface
 {
     /**
-     * @param ValidatorInterface $validator
+     * @param  ValidatorInterface  $validator
      */
     public function __construct(
         protected ValidatorInterface $validator

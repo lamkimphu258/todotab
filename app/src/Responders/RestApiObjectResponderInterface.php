@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 interface RestApiObjectResponderInterface extends RestApiResponderInterface
 {
     /**
-     * @param ObjectDtoInterface $objectDto
+     * @param  ObjectDtoInterface  $objectDto
      * @return JsonResponse
      */
     public function respond(ObjectDtoInterface $objectDto): JsonResponse;

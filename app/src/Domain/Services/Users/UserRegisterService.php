@@ -23,7 +23,7 @@ class UserRegisterService extends AbstractService
     }
 
     /**
-     * @param UserRegisterCommand $command
+     * @param  UserRegisterCommand  $command
      * @return void
      */
     public function handle(CommandInterface $command)

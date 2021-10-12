@@ -70,6 +70,10 @@ test-all:
 	docker-compose exec app \
 	php bin/phpunit tests/
 
+test-one:
+	docker-compose exec app \
+	php bin/phpunit $(test)
+
 test-coverage:
 	docker-compose exec app \
 	php bin/phpunit --coverage-html build

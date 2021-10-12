@@ -32,3 +32,8 @@ todo-index:
   path: /api/rest/v1/{username}/todos
   controller: App\Actions\Todos\TodoIndexAction
   methods: GET
+
+todo-create:
+  path: /api/rest/v1/todos
+  controller: App\Actions\Todos\TodoCreateAction
+  methods: POST

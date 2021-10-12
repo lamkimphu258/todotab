@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class TodoIndexResponder implements RestApiListResponderInterface
 {
     /**
-     * @param ListDtoInterface[] $todoListDtos
+     * @param  ListDtoInterface[]  $todoListDtos
      * @return JsonResponse
      */
     public function respond(array $todoListDtos): JsonResponse

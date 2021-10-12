@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import Spinner from "../../Common/Spinner";
 import {useParams} from "react-router-dom";
+import TodoList from "./TodoList";
+import TodoCreate from "./TodoCreate";
 
 type Todo = {
     name: string,
     slug: string,
-    createdAt: DateTimeUTC;
-    updatedAt: DateTimeUTC;
+    createdAt: DateTimeUTC,
+    updatedAt: DateTimeUTC,
 }
 
 type DateTimeUTC = {
@@ -29,7 +30,7 @@ const compareTodoName = (todo1: Todo, todo2: Todo) => {
     return 0;
 }
 
-const TodoIndexPage: React.FC = () => {
+const TodoHomePage: React.FC = () => {
     const [readyState, setReadyState] = useState<boolean>(false);
     const [todos, setTodos] = useState<Todo[]>([]);
     const {username} = useParams<TodoIndexProps>();
@@ -48,21 +49,10 @@ const TodoIndexPage: React.FC = () => {
     return (
         <div className={'w-50 mx-auto my-5'}>
             <h1 className={'text-center'}>Todo List</h1>
-            {readyState ? (
-                <ul className={'list-group'}>
-                    {todos.map((todo) => {
-                        return (
-                            <li className={'list-group-item text-start shadow-sm p-3 mb-2 bg-body rounded'}
-                                key={todo.slug}>{todo.name}</li>
-                        )
-                    })}
-                </ul>
-            ) : (
-                <Spinner/>
-            )
-            }
+            <TodoCreate todos={todos} setTodos={setTodos}/>
+            <TodoList readyState={readyState} todos={todos}/>
         </div>
     )
 }
 
-export default TodoIndexPage;
+export default TodoHomePage;
