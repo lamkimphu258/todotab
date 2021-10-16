@@ -52,4 +52,9 @@ class Todo extends Entity implements TodoInterface
     {
         $this->owner = $user;
     }
+
+    public function getOwner()
+    {
+        return $this->owner;
+    }
 }

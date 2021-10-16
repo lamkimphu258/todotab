@@ -51,7 +51,7 @@ const TodoHomePage: React.FC = () => {
         <div className={'w-50 mx-auto my-5'}>
             <h1 className={'text-center'}>Todo List</h1>
             <TodoCreate todos={todos} setTodos={setTodos}/>
-            <TodoList readyState={readyState} todos={todos}/>
+            <TodoList readyState={readyState} todos={todos} setTodos={setTodos}/>
         </div>
     )
 }

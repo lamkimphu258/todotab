@@ -37,3 +37,10 @@ todo-create:
   path: /api/rest/v1/todos
   controller: App\Actions\Todos\TodoCreateAction
   methods: POST
+
+todo-delete:
+  path: /api/rest/v1/todos/{slug}
+  controller: App\Actions\Todos\TodoDeleteAction
+  methods: DELETE
+  defaults:
+    _format: json
