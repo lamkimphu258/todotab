@@ -28,14 +28,5 @@ class TodoRepository extends ServiceEntityRepository
     public function findByOwner(User $owner): array
     {
         return $owner->getTodos()->toArray();
-//        return $this->getEntityManager()
-//            ->createQueryBuilder()
-//            ->select('t.name')
-//            ->from('App\Domain\Entities\Todos\Todo', 't')
-//            ->leftJoin('t.owner', 'o')
-//            ->where('o.email = :ownerEmail')
-//            ->setParameter('ownerEmail', $ownerEmail)
-//            ->getQuery()
-//            ->getResult();
     }
 }

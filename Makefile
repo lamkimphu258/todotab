@@ -9,6 +9,8 @@ down:
 
 restart: down up
 
+rebuild: build restart
+
 env-init:
 	ln -s "${PWD}/app/.env" "${PWD}/.env"
 
@@ -37,6 +39,10 @@ composer-remove:
 composer-dumpautoload:
 	docker-compose exec app \
 	composer dumpautoload
+
+composer-update:
+	docker-compose exec app \
+	composer update
 
 yarn-install:
 	docker-compose exec app \

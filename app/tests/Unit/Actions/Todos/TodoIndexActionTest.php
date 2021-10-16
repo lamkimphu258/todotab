@@ -21,10 +21,6 @@ class TodoIndexActionTest extends TodoActionTestCase
     public function testReturnAllTodos()
     {
         $request = $this->createMock(Request::class);
-        $request->expects($this->once())
-            ->method('get')
-            ->with('username')
-            ->willReturn(self::USERNAME);
 
         $filter = $this->createMock(TodoIndexFilter::class);
 
@@ -56,12 +52,6 @@ class TodoIndexActionTest extends TodoActionTestCase
             ->with($userFactory->object())
             ->willReturn($todos);
 
-        $userRepository = $this->createMock(UserRepository::class);
-        $userRepository->expects($this->once())
-            ->method('findOneByUsername')
-            ->with('username')
-            ->willReturn($userFactory->object());
-
         $dtoMapper = $this->createMock(TodoListDtoMapper::class);
         $dtoMapper->expects($this->once())
             ->method('toDtos')
@@ -79,8 +69,8 @@ class TodoIndexActionTest extends TodoActionTestCase
             $todoRepository,
             $dtoMapper,
             $responder,
-            $userRepository
         );
+        $action->setContainer($this->getAuthenticatedUserContainer($userFactory->object()));
         $response = $action->__invoke($request);
 
         $this->assertTrue($response->isOk());

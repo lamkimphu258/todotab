@@ -22,5 +22,10 @@ class UserFixtures extends Fixture
                 'username' => $faker->unique->userName
             ]
         );
+        UserFactory::createOne([
+            'email' => 'test@email.com',
+            'password' => 'password123ST@',
+            'username' => 'test',
+        ]);
     }
 }

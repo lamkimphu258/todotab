@@ -4,6 +4,7 @@ namespace App\Actions\Todos;
 
 use App\Actions\AbstractRestApiAction;
 use App\Actions\DtoMappers\Todos\TodoListDtoMapper;
+use App\Actions\Traits\IsAuthenticatedAction;
 use App\Domain\Repositories\Todos\TodoRepository;
 use App\Domain\Repositories\Users\UserRepository;
 use App\Filters\Todos\TodoIndexFilter;
@@ -14,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class TodoIndexAction extends AbstractRestApiAction
 {
+    use IsAuthenticatedAction;
+
     private UserRepository $userRepository;
 
     /**
@@ -27,10 +30,8 @@ class TodoIndexAction extends AbstractRestApiAction
         TodoRepository $repository,
         TodoListDtoMapper $dtoMapper,
         TodoIndexResponder $responder,
-        UserRepository $userRepository
     ) {
         parent::__construct($filter, $repository, $dtoMapper, $responder);
-        $this->userRepository = $userRepository;
     }
 
     /**
@@ -39,9 +40,10 @@ class TodoIndexAction extends AbstractRestApiAction
      */
     public function __invoke(Request $request): JsonResponse
     {
+        $this->isAuthenticatedOrFail();
+
         $this->filter->filter($request);
-        $user = $this->userRepository->findOneByUsername($request->get('username'));
-        $todos = $this->repository->findByOwner($user);
+        $todos = $this->repository->findByOwner($this->getUser());
         $todoListDtos = $this->dtoMapper->toDtos($todos);
         return $this->responder->respond($todoListDtos);
     }

@@ -22,9 +22,9 @@ class TodoCreateAction extends AbstractRestApiAction
     public function __construct(
         TodoCreateFilter $filter,
         TodoRepository $repository,
-        TodoCreateService $service,
         TodoObjectDtoMapper $dtoMapper,
-        TodoCreateResponder $responder
+        TodoCreateResponder $responder,
+        TodoCreateService $service
     ) {
         parent::__construct($filter, $repository, $dtoMapper, $responder);
         $this->service = $service;

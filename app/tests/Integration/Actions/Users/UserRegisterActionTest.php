@@ -17,18 +17,16 @@ class UserRegisterActionTest extends UserActionTestCase
 
     public function testCreateUserSuccessfullyReturnUserDto()
     {
-        $response = $this->httpClient->request(
+        $this->client->jsonRequest(
             self::HTTP_METHOD,
             self::URI,
-            [
-                'json' => self::VALID_REQUEST_BODY
-            ]
+            self::VALID_REQUEST_BODY
         );
 
-        $this->assertEquals(Response::HTTP_CREATED, $response->getStatusCode());
-        $this->assertJson($response->getContent());
+        $this->assertEquals(Response::HTTP_CREATED, $this->client->getResponse()->getStatusCode());
+        $this->assertJson($this->client->getResponse()->getContent());
 
-        $responseInAssociativeArray = json_decode($response->getContent(), true);
+        $responseInAssociativeArray = json_decode($this->client->getResponse()->getContent(), true);
 
         $this->assertArrayHasKey(UserPropertyName::ID, $responseInAssociativeArray);
         $this->assertArrayHasKey(UserPropertyName::EMAIL, $responseInAssociativeArray);
@@ -37,7 +35,13 @@ class UserRegisterActionTest extends UserActionTestCase
         $this->assertArrayHasKey(UserPropertyName::CREATED_AT, $responseInAssociativeArray);
         $this->assertArrayHasKey(UserPropertyName::UPDATED_AT, $responseInAssociativeArray);
 
-        $this->assertSame(self::VALID_REQUEST_BODY[UserPropertyName::EMAIL], $responseInAssociativeArray[UserPropertyName::EMAIL]);
-        $this->assertSame(self::VALID_REQUEST_BODY[UserPropertyName::USERNAME], $responseInAssociativeArray[UserPropertyName::USERNAME]);
+        $this->assertSame(
+            self::VALID_REQUEST_BODY[UserPropertyName::EMAIL],
+            $responseInAssociativeArray[UserPropertyName::EMAIL]
+        );
+        $this->assertSame(
+            self::VALID_REQUEST_BODY[UserPropertyName::USERNAME],
+            $responseInAssociativeArray[UserPropertyName::USERNAME]
+        );
     }
 }
